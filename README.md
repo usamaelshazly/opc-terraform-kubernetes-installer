@@ -9,11 +9,11 @@
 
 ## About
 
-The Kubernetes Installer for [Oracle Classic IaaS)][oci-c] provides a Terraform-based Kubernetes installation for the
+The Kubernetes Installer for [Oracle Classic IaaS][oci-c] provides a Terraform-based Kubernetes installation for the
 [Oracle Cloud@Customer (OCC)][occ] & [OCI-Classic (OCI-C)][oci-c] Oracle Cloud Infrastructure platforms.  
 This installer utilises the [Terraform Oracle Public Cloud Provider][opc provider].
 It consists of a set of [Terraform][terraform] configurations & shell scripts that are used to provision the Kubernetes control plane
-in accordance with [Oracle Container Services for use with Kubernetes (OCSK)][ocsk] which is based on Kubernetes version 1.8.4, as released upstream.
+in accordance with [Oracle Container Services for use with Kubernetes (OCSK)][ocsk] - which is based on Kubernetes version 1.8.4, as released upstream.
 
 ## Cluster Overview
 
@@ -135,10 +135,10 @@ $     129.199.199.199
 $]
 ````
 
-Terraform will also output the Kubernetes running services and pods via tabular format.
+Terraform will also output the Kubernetes running services and pods via tabular format at the conclusion of the installation process.
 
 To access Kubernetes dashboard, or any of the other web interfaces running in the cluster:
-SSH tunnel to the IP address of the Kubernetes dashboard pod &/or other pods via the public/NAT IP address assigned to the compute instance. Keys are located in the directory `./ssh`.
+SSH tunnel to the IP address of the Kubernetes dashboard pod &/or other pods via the public/NAT IP address assigned to the compute instance. Keys are located in the directory `./ssh`. Keys are provided for simplicity only, for long running deployments it is recommended that you replace the provided keys prior to deployment.
 To access the Traefik dashboard, browse to the public IP address of the instance on port 8080.
 
 ### Scale, upgrade, or delete the cluster:
