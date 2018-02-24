@@ -3,7 +3,7 @@
 [occ]: https://cloud.oracle.com/en_US/cloud-at-customer
 [opc provider]: https://github.com/terraform-providers/terraform-provider-opc
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[ocsk]:https://docs.oracle.com/cd/E52668_01/E88884/html/pref.html
+[ocs-k]:https://docs.oracle.com/cd/E52668_01/E88884/html/pref.html
 
 # Terraform Kubernetes Installer for Oracle Classic IaaS
 ![readme md_logo_v0 02](https://user-images.githubusercontent.com/36317955/36626040-45597ee2-197f-11e8-9f7a-43780723e1c3.png)
@@ -14,7 +14,7 @@ The Kubernetes Installer for [Oracle Classic IaaS][oci-c] provides a Terraform-b
 
 This installer utilises the [Terraform Oracle Public Cloud Provider][opc provider].
 It consists of a set of [Terraform][terraform] configurations & shell scripts that are used to provision the Kubernetes control plane
-in accordance with [Oracle Container Services for use with Kubernetes (OCSK)][ocsk] - which is based on Kubernetes version 1.8.4, as released upstream.
+in accordance with [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k] - which is based on Kubernetes version 1.8.4, as released upstream.
 
 The OCSK Kubernetes distribution has passed the [CNCF Certified Kubernetes conformance program](https://www.cncf.io/certification/software-conformance/). _For enterprises and startups using Kubernetes, conformance guarantees interoperability from one Kubernetes installation to the next. It allows them flexibility and vendor independence._
 
@@ -38,7 +38,7 @@ Terraform is used to _provision_ the cloud infrastructure and any required local
 Terraform uses `remote-exec` scripts to handle the instance-level _configuration_ for the instance to configure:
 
 - Single node Kubernetes master configuration.
-- Installation is in accordance with the previously referenced [Oracle Container Services for use with Kubernetes (OCSK)][ocsk]
+- Installation is in accordance with the previously referenced [OCS-K][ocs-k].
 - Kubernetes cluster version: 1.8.4.
 - Kubernetes Dashboard and kube-DNS cluster add-ons.
 - Optional - Monitoring and Metrics:
@@ -50,7 +50,7 @@ Terraform uses `remote-exec` scripts to handle the instance-level _configuration
 - Optional - Kubernetes Ingress:
   - Include [Traefik](https://traefik.io/) Ingress and sample applications. Functioning K8s ingress & controller (L7 Load Balancer) deployed and configured to perform path based traffic steering to x3 sample microservices applications.
 - Optional - Service Mesh:
-  - Include [Istio](https://istio.io) Service Mesh. Functioning Istio service mesh and integrated sample microservices application (BookInfo – per istio.io).
+  - Include [Istio](https://istio.io) Service Mesh. Functioning Istio service mesh and integrated sample microservices application (BookInfo – per _istio.io_).
 
 ## Prerequisites
 
@@ -151,9 +151,9 @@ _Keys are provided for simplicity only, for long running deployments it is recom
 
 ### Scale, upgrade, or delete the cluster:
 
-During the setup process, kubeadm-setup.sh generates and outputs to stdout a token that can be used to add more nodes to the cluster. Furether instruction is available via the [Oracle Container Services for use with Kubernetes (OCSK)](https://docs.oracle.com/cd/E52668_01/E88884/html/kubernetes_install_worker.html).
+During the setup process, kubeadm-setup.sh generates and outputs to stdout a token that can be used to add more nodes to the cluster. Further instruction is available via [OCS-K](https://docs.oracle.com/cd/E52668_01/E88884/html/kubernetes_install_worker.html).
 
 ## Notes
- - [Oracle Container Services for use with Kubernetes (OCSK)][ocsk]:
+ - [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k]:
 Oracle provides a setup and configuration script that takes advantage of the kubeadm-setup.sh cluster configuration utility. This script eases the setup on Oracle Linux including configuration of networking, firewall, proxies and the initial cluster deployment, as well as providing additional support for backup and recovery.
  - `environments:` Additional documentation, instructions and references will be included here (Wiki) which describe how to access and utilise each of the additional `environments` that can be automatically provisioned to the cluster.
