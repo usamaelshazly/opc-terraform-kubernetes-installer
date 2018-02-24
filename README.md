@@ -11,9 +11,12 @@
 
 The Kubernetes Installer for [Oracle Classic IaaS][oci-c] provides a Terraform-based Kubernetes installation for the
 [Oracle Cloud@Customer (OCC)][occ] & [OCI-Classic (OCI-C)][oci-c] Oracle Cloud Infrastructure platforms.  
+
 This installer utilises the [Terraform Oracle Public Cloud Provider][opc provider].
 It consists of a set of [Terraform][terraform] configurations & shell scripts that are used to provision the Kubernetes control plane
 in accordance with [Oracle Container Services for use with Kubernetes (OCSK)][ocsk] - which is based on Kubernetes version 1.8.4, as released upstream.
+
+The OCSK Kubernetes distribution has passed the [CNCF Certified Kubernetes conformance program](https://www.cncf.io/certification/software-conformance/). _For enterprises and startups using Kubernetes, conformance guarantees interoperability from one Kubernetes installation to the next. It allows them flexibility and vendor independence._
 
 ## Cluster Overview
 
@@ -54,6 +57,7 @@ Terraform uses `remote-exec` scripts to handle the instance-level _configuration
 1. Download and install [Terraform][terraform] (v0.11.3 or later). Follow the link for Hashicorp [instructions](https://www.terraform.io/intro/getting-started/install.html).
 2. [Terraform OPC provider](https://www.terraform.io/docs/providers/opc/index.html#) (can be pulled automatically using terraform init
 directive once Terraform is configured).
+3. Register an account at the [Oracle Container Registry](https://container-registry.oracle.com/pls/apex/f?p=113:101) (OCR). Be sure to accept the Oracle Standard Terms and Restrictions after registering with the OCR. _This is a dependency for the installer to be able to download the containers which will be used to assemble the K8s control plane._
 
 ## Quick start
 ### Deploy the cluster:
