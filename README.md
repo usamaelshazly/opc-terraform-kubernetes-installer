@@ -5,10 +5,8 @@
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [ocsk]:https://docs.oracle.com/cd/E52668_01/E88884/html/pref.html
 
-![readme md_logo_v0 02](https://user-images.githubusercontent.com/36317955/36626000-71a5e78e-197e-11e8-9b26-adadfc72e491.png)
-
 # Terraform Kubernetes Installer for Oracle Classic IaaS
-
+![readme md_logo_v0 02](https://user-images.githubusercontent.com/36317955/36626040-45597ee2-197f-11e8-9f7a-43780723e1c3.png)
 ## About
 
 The Kubernetes Installer for [Oracle Classic IaaS][oci-c] provides a Terraform-based Kubernetes installation for the
