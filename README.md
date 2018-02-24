@@ -57,7 +57,7 @@ Terraform uses `remote-exec` scripts to handle the instance-level _configuration
 1. Download and install [Terraform][terraform] (v0.11.3 or later). Follow the link for Hashicorp [instructions](https://www.terraform.io/intro/getting-started/install.html).
 2. [Terraform OPC provider](https://www.terraform.io/docs/providers/opc/index.html#) (can be pulled automatically using terraform init
 directive once Terraform is configured).
-3. Register an account at the [Oracle Container Registry](https://container-registry.oracle.com/pls/apex/f?p=113:101) (OCR). Be sure to accept the Oracle Standard Terms and Restrictions after registering with the OCR. _This is a dependency for the installer to be able to download the containers which will be used to assemble the K8s control plane._
+3. Register an account at the [Oracle Container Registry](https://container-registry.oracle.com/pls/apex/f?p=113:101) (OCR). Be sure to accept the Oracle Standard Terms and Restrictions after registering with the OCR. The installer will request your OCR credentials at build time. _Registration with the OCR is a dependency for the installer to be able to download the containers which will be used to assemble the K8s control plane._
 
 ## Quick start
 ### Deploy the cluster:
@@ -142,8 +142,12 @@ $]
 Terraform will also output the Kubernetes running services and pods via tabular format at the conclusion of the installation process.
 
 To access Kubernetes dashboard, or any of the other web interfaces running in the cluster:
-SSH tunnel to the IP address of the Kubernetes dashboard pod &/or other pods via the public/NAT IP address assigned to the compute instance. Keys are located in the directory `./ssh`. Keys are provided for simplicity only, for long running deployments it is recommended that you replace the provided keys prior to deployment.
+SSH tunnel to the IP address of the Kubernetes dashboard pod &/or other pods via the public/NAT IP address assigned to the compute instance. Keys are located in the directory `./ssh`.
+
 To access the Traefik dashboard, browse to the public IP address of the instance on port 8080.
+
+_Keys are provided for simplicity only, for long running deployments it is recommended that you replace the provided keys prior to deployment._
+
 
 ### Scale, upgrade, or delete the cluster:
 
@@ -152,4 +156,4 @@ During the setup process, kubeadm-setup.sh generates and outputs to stdout a tok
 ## Notes
  - [Oracle Container Services for use with Kubernetes (OCSK)][ocsk]:
 Oracle provides a setup and configuration script that takes advantage of the kubeadm-setup.sh cluster configuration utility. This script eases the setup on Oracle Linux including configuration of networking, firewall, proxies and the initial cluster deployment, as well as providing additional support for backup and recovery.
- - `environments:` Additional documentation, instructions and references will be included here which describe how to access and utilise each of the additional "Environments" that can be automatically provisioned to the cluster.
+ - `environments:` Additional documentation, instructions and references will be included here (Wiki) which describe how to access and utilise each of the additional `environments` that can be automatically provisioned to the cluster.
