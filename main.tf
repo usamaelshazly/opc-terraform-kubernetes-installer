@@ -132,7 +132,6 @@
       depends_on = ["opc_compute_instance.mst-instance1"]
       provisioner "file" {
         connection {
-          agent = true
           timeout = "30m"
           type = "ssh"
           host = "${opc_compute_ip_reservation.reservation-mst1.ip}"
@@ -144,7 +143,6 @@
       }
       provisioner "remote-exec" {
         connection {
-          agent = true
           timeout = "30m"
           type = "ssh"
           host = "${opc_compute_ip_reservation.reservation-mst1.ip}"
