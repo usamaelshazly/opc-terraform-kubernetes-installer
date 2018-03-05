@@ -35,7 +35,7 @@ Terraform is used to _provision_ the cloud infrastructure and any required local
 
 #### Cluster Configuration:
 
-Terraform uses `remote-exec` scripts to handle the instance-level _configuration_ for the instance to configure:
+Terraform uses `remote-exec` scripts to handle the instance-level _configuration_ for the instance to provision:
 
 - Single node Kubernetes master configuration.
 - Installation is in accordance with the previously referenced [OCS-K][ocs-k].
