@@ -146,8 +146,7 @@ SSH tunnel to the IP address of the Kubernetes dashboard pod &/or other pods via
 
 To access the Traefik dashboard, browse to the public IP address of the instance on port 8080.
 
-_Keys are provided for simplicity only, for long running deployments it is recommended that you replace the provided keys prior to deployment._
-
+_**Keys are provided for simplicity only, for long running deployments it is strongly recommended that you replace the provided keys prior to deployment.**_
 
 ### Scale, upgrade, or delete the cluster:
 
