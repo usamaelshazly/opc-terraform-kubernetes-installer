@@ -1,8 +1,6 @@
 # Build Kubernetes based on the Oracle Linux Container Services for use with Kubernetes.
-# The current release of Oracle Linux Container Services for use with Kubernetes is based on Kubernetes
-# version 1.8.4, as released upstream.
-#
-# Note: Initial version created by: cameron.senese@oracle.com
+# Oracle Container Services for use with Kubernetes version 1.1.9 is based on Kubernetes version 1.9.1, as released upstream.
+# Developer branch is is based on Kubernetes version v1.11.3, as released upstream.
 
 ### Environment ###
   provider "opc" {
@@ -81,7 +79,7 @@
     ### Network :: Shared Network :: Security IP Lists ###
     # A security IP list is a list of IP subnets (in the CIDR format) or IP addresses that are external to instances in OCI Classic.
     # You can use a security IP list as the source or the destination in security rules to control network access to or from Classic instances.
-    ###	
+    ###
     resource "opc_compute_security_ip_list" "sec-ip-list1" {
       name        = "sec-ip-list1-inet"
       ip_entries = [ "0.0.0.0/0" ]
@@ -152,7 +150,7 @@
         inline = [
           "chmod +x /tmp/mgt-script.sh",
           "chmod +x /tmp/mgt/kubernetes-env.sh",
-          "sudo /tmp/mgt-script.sh ${var.containerRepoUser} ${var.containerRepoPass} ${var.envDashMonMet} ${var.envFn} ${var.envMicroSvc} ${var.envIngress} ${var.envSvcMesh}",
+          "sudo /tmp/mgt-script.sh ${var.verDeveloper} ${var.containerRepoUser} ${var.containerRepoPass} ${var.envDashMonMet} ${var.envMicroSvc} ${var.envIngress} ${var.envSvcMesh}",
         ]
       }
   }
