@@ -6,15 +6,21 @@
 [ocs-k]:https://docs.oracle.com/cd/E52668_01/E88884/html/pref.html
 
 # Terraform Kubernetes Installer for Oracle Classic IaaS
-![readme md_logo_v0 02](https://user-images.githubusercontent.com/36317955/36626040-45597ee2-197f-11e8-9f7a-43780723e1c3.png)
+
+![readme md_logo_v0 03](https://user-images.githubusercontent.com/36317955/52099850-028fbd80-2629-11e9-9814-9ce9ac491120.png)
+
 ## About
 
 The Kubernetes Installer for [Oracle Classic IaaS][oci-c] provides a Terraform-based Kubernetes installation for the
-[Oracle Cloud@Customer (OCC)][occ] & [OCI-Classic (OCI-C)][oci-c] Oracle Cloud Infrastructure platforms.  
+[Oracle Cloud@Customer (OCC)][occ] & [OCI-Classic (OCI-C)][oci-c] Oracle Cloud Infrastructure platforms.
 
 This installer utilises the [Terraform Oracle Public Cloud Provider][opc provider].
 It consists of a set of [Terraform][terraform] configurations & shell scripts that are used to provision the Kubernetes control plane
-in accordance with [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k] - which is based on Kubernetes version 1.8.4, as released upstream.
+in accordance with [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k].
+This automation suports installation of x2 branches of OCS-K:
+
+ - Production Release: as based on Kubernetes version 1.9.1, as released upstream.
+ - Developer Release: as based on Kubernetes version 1.11.3, as released upstream.
 
 The OCSK Kubernetes distribution has passed the [CNCF Certified Kubernetes conformance program](https://www.cncf.io/certification/software-conformance/). _For enterprises and startups using Kubernetes, conformance guarantees interoperability from one Kubernetes installation to the next. It allows them flexibility and vendor independence._
 
@@ -39,12 +45,10 @@ Terraform uses `remote-exec` scripts to handle the instance-level _configuration
 
 - Single node Kubernetes master configuration.
 - Installation is in accordance with the previously referenced [OCS-K][ocs-k].
-- Kubernetes cluster version: 1.8.4.
+- Kubernetes cluster version: 1.9.1. or 1.11.3.
 - Kubernetes Dashboard and kube-DNS cluster add-ons.
 - Optional - Monitoring and Metrics:
   - Grafana, Heapster, & InfluxDB for enhanced monitoring and metrics.
-- Optional - Functions as a Service:
-  - Include the [Fn](http://fnproject.io/), Fn Flow, & Fn UI server-side components. Installed via published [helm charts](#https://github.com/fnproject/fn-helm).
 - Optional - Microservices Environment:
   - Include WeaveScope Microservices Dashboard and E-Commerce application. Functioning microservices e-commerce application (Socks Shop) with additional enhanced management dashboard.
 - Optional - Kubernetes Ingress:
@@ -66,7 +70,7 @@ Initialize Terraform:
 
 ```
 $ terraform init
-``` 
+```
 
 View what Terraform plans do before actually doing it:
 
@@ -102,9 +106,12 @@ $ variable "containerRepoPass"
 $ #(input oracle container registry password)
 ````
 
-Installer will also ask the user if any of the following `environments` should be provisioned to the cluster. Enter `true` or `false` for each item accordingly:
+Installer will also ask the user if the Developer branch should be installed (Kubernetes v1.11.3), and if any of the following `environments` should be provisioned to the cluster. Enter `true` or `false` for each item accordingly:
 
 ````bash
+$ OCS-K Developer Branch:
+$ #Install Kubernetes from the Developer preview branch (More recent version, however Oracle suggests not be used in production.)
+
 $ Enhanced Dashboard, Monitoring and Metrics:
 $ #include grafana, heapster, & influxdb..
 
@@ -116,9 +123,6 @@ $ #include traefik ingress and sample applications..
 
 $ Service Mesh:
 $ #include istio service mesh, and integrated sample microservices application..
-
-$ fn:
-$ #include fn installed via published helm charts..
 ````
 
 The entire build and cluster creation process is automated – no further input is required.
@@ -155,4 +159,3 @@ During the setup process, kubeadm-setup.sh generates and outputs to stdout a tok
 ## Notes
  - [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k]:
 Oracle provides a setup and configuration script that takes advantage of the kubeadm-setup.sh cluster configuration utility. This script eases the setup on Oracle Linux including configuration of networking, firewall, proxies and the initial cluster deployment, as well as providing additional support for backup and recovery.
- - `environments:` Additional documentation, instructions and references will be included here (Wiki) which describe how to access and utilise each of the additional `environments` that can be automatically provisioned to the cluster.
