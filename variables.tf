@@ -1,8 +1,6 @@
 # Build Kubernetes based on the Oracle Linux Container Services for use with Kubernetes.
-# The current release of Oracle Linux Container Services for use with Kubernetes is based on Kubernetes
-# version 1.8.4, as released upstream.
-#
-# Note: Initial version created by: cameron.senese@oracle.com
+# Oracle Container Services for use with Kubernetes version 1.1.9 is based on Kubernetes version 1.9.1, as released upstream.
+# Developer branch is is based on Kubernetes version v1.11.3, as released upstream.
 
 ### Credentials ###
   variable "ociUser" {
