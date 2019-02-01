@@ -16,8 +16,9 @@ The Kubernetes Installer for [Oracle Classic IaaS][oci-c] provides a Terraform-b
 
 This installer utilises the [Terraform Oracle Public Cloud Provider][opc provider].
 It consists of a set of [Terraform][terraform] configurations & shell scripts that are used to provision the Kubernetes control plane
-in accordance with [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k].
-This automation suports installation of x2 branches of OCS-K:
+in accordance with [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k].  
+
+This automation supports installation of x2 branches of OCS-K:
 
  - Production Release: based on Kubernetes version 1.9.1, as released upstream.
  - Developer Release: based on Kubernetes version 1.11.3, as released upstream.
