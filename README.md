@@ -19,8 +19,8 @@ It consists of a set of [Terraform][terraform] configurations & shell scripts th
 in accordance with [Oracle Container Services for use with Kubernetes (OCS-K)][ocs-k].
 This automation suports installation of x2 branches of OCS-K:
 
- - Production Release: as based on Kubernetes version 1.9.1, as released upstream.
- - Developer Release: as based on Kubernetes version 1.11.3, as released upstream.
+ - Production Release: based on Kubernetes version 1.9.1, as released upstream.
+ - Developer Release: based on Kubernetes version 1.11.3, as released upstream.
 
 The OCSK Kubernetes distribution has passed the [CNCF Certified Kubernetes conformance program](https://www.cncf.io/certification/software-conformance/). _For enterprises and startups using Kubernetes, conformance guarantees interoperability from one Kubernetes installation to the next. It allows them flexibility and vendor independence._
 
