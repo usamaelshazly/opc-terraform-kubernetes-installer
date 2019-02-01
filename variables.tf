@@ -24,12 +24,14 @@
       description = "Password - Oracle Container Registry"
   }
 
+### Version ###
+  variable "verDeveloper" {
+      description = "Install Kubernetes from the Developer preview branch (More recent version, however Oracle suggests these not be used in production.)"
+  }
+
 ### Environments ###
   variable "envDashMonMet" {
-      description = "Enhanced Dashboard, Monitoring, and Metrics (Include K8s dashboard v1.8.1, Grafana, Heapster, & InfluxDB)"
-  }
-  variable "envFn" {
-      description = "Functions as a Service (Include Fn FaaS)"
+      description = "Enhanced Monitoring and Metrics (Grafana, Heapster, & InfluxDB)"
   }
   variable "envIngress" {
       description = "Kubernetes Ingress (Include Traefik Ingress and sample applications)"
